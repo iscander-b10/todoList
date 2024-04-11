@@ -13,11 +13,145 @@ code {
 }
 
 .wrapper {
-  padding-top: 5rem;
+  display: flex;
   margin: 0 auto;
-  width: 600px;
+  height: 100vh;
+}
+
+.logo {
+  width: 60px;
+  height: 60px;
+  border-radius: 100%;
+  cursor: pointer;
+}
+
+ul{
+  padding: 0;
+  margin: 0;
+}
+
+a{
+  width: 60px;
+  align-self: center;
+}
+
+.sideBar{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 25%;
+  margin: 0;
+  padding: 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  background-color: rgb(211, 206, 202);
+}
+
+.sideBarItem{
+  cursor: pointer;
+  color: black;
+  list-style: none;
+}
+
+.sideBarItem:hover{
+  color: rgb(188, 16, 16);
+  transition: 0.5s;
+}
+
+.content{
+  width: 75%;
+  padding: 2rem;
+  background-color: lightyellow;
 }
 
 .done {
   text-decoration: line-through;
+}
+
+.todoList {
+  list-style: "none";
+  margin: 0;
+  padding: 0;
+}
+
+.todoItem{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: .5rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: .5rem;
+}
+
+.checkbox {
+  margin-right: .5rem;
+}
+
+.addTodo {
+  margin-bottom: 1rem;
+  border: 1px solid black;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.btn-open {
+  cursor: pointer;
+}
+
+.modal{
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.4);
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: scale(0);
+  transition: 0.5s;
+}
+
+.modal.active {
+  transform: scale(1);
+  pointer-events: all;
+}
+
+.modal__content{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  border-radius: 12px;
+  background-color: white;
+  width: 300px;
+  height: 300px;
+  font-size: 36px;
+  transform: scale(0.5);
+  transition: 0.4s all;
+}
+
+.modal__content.active {
+  transform: scale(1);
+}
+
+.gallery__wrapper{
+  padding: 2rem;
+  width: 75%;
+  background-color: rgb(136, 193, 83);
+}
+
+.gallery__list{
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+}
+
+img{
+  width: 100%;
 }
