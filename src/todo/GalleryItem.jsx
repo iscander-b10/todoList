@@ -1,10 +1,10 @@
 import React from "react";
 
 
-const GalleryItem = ({link, setLink, index}) => {
+const GalleryItem = ({setLink, index}) => {
     return(
-        <li onClick={() => setLink("link")}>
-            <img src={"/img/car"+index+".jpg"}></img>
+        <li key={index} onClick={() => setLink(`/img/car${index}.jpg`)}>
+            <img src={`/img/car${index}.jpg`}></img>
         </li>
     )
 }

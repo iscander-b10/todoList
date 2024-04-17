@@ -4,41 +4,13 @@ import GalleryItem from "./GalleryItem";
 
 const Gallery = () => {
     const [link, setLink] = useState("");
+    const data = [1,2,3,4,5,6,7,8,9,10];
 
     return(
         <div className="gallery__wrapper">
-            <h1>Галерея</h1>
+            <h1>{'Галерея'}</h1>
             <ul className="gallery__list">
-                {/* <GalleryItem>
-                    <img src="../img/car1.jpg"></img>
-                </GalleryItem> */}
-                <li>
-                    {/* <img src="./public/img/car2.jpg"></img> */}
-                </li>
-                <li>
-                    {/* <img src="./public/img/car3.jpg"></img> */}
-                </li>
-                <li>
-                    {/* <img src="./public/img/car4.jpg"></img> */}
-                </li>
-                <li>
-                    {/* <img src="./public/img/car5.jpg"></img> */}
-                </li>
-                <li>
-                    {/* <img src="./public/img/car6.jpg"></img> */}
-                </li>
-                <li>
-                    {/* <img src="./public/img/car7.jpg"></img> */}
-                </li>
-                <li>
-                    {/* <img src="./public/img/car8.jpg"></img> */}
-                </li>
-                <li>
-                    {/* <img src="./public/img/car9.jpg"></img> */}
-                </li>
-                <li>
-                    {/* <img src="./public/img/car10.jpg"></img> */}
-                </li>
+                {data.map(item => <GalleryItem link={link} setLink={setLink} index={item}/>)}
             </ul>
             <ModalGallery link={link} setLink={setLink}></ModalGallery>
         </div>

@@ -25,12 +25,10 @@ const Todo = () => {
     
     return(
         <Context.Provider value={{removeTodo}}>
-            <div className="content">
                 <h1>Заметки</h1>
                 <AddTodo setTodos={setTodos} setActive={setModalActive}></AddTodo>
                 <Modal active={modalActive} setActive={setModalActive}></Modal>
                 <TodoList todos={todos} onToggle={toggleTodo}></TodoList>
-            </div>
         </Context.Provider>
     )
 }
