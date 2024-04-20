@@ -1,6 +1,6 @@
 import React from "react";
 import SideBar from "./todo/SideBar/SideBar.jsx";
-import Content from "./todo/Content.jsx";
+import Content from "./todo/Content/Content.jsx";
 import "./styles.css";
 
 function App() {

@@ -1,0 +1,12 @@
+.gallery__wrapper {
+    padding: 2rem;
+    width: 75%;
+}
+  
+.gallery__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    list-style: none;
+}
+  
