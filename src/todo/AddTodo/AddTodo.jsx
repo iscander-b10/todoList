@@ -5,7 +5,7 @@ const AddTodo = ({setTodos, setActive}) => {
     const [value, setValue] = useState('');
     
     const addTodo = (value, code) => {
-        if (code === "Enter") {
+        if (code === "Enter" && value.length !=0) {
             setTodos((prevState) => {
                 const newTodo = {
                     id: prevState.length + 1,
