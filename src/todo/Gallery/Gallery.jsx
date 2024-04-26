@@ -2,7 +2,10 @@ import React, {useState} from "react";
 import ModalGallery from "../ModalGallery/ModalGallery";
 import GalleryItem from "../GalleryItem/GalleryItem";
 import "./style.css"
-import Pagination from "../Pagination/Pagination";
+import Paginations from "../Pagination/Paginations";
+import Button from '@mui/material/Button';
+import Pagination from '@mui/material/Pagination';
+import { Stack } from "@mui/material";
 const contentSize = 5;
 
 const Gallery = () => {
@@ -38,9 +41,15 @@ const Gallery = () => {
             <ul className="gallery__list">
                 {currentImg.map(item => <GalleryItem setLink={setLink} index={item} key={item}/>)}
             </ul>
-            <Pagination contentSize={contentSize} totalImg={data.length} paginate={paginate}/>
-            <button className="btn" onClick={PrevPage}>Предыдущая Страница</button>
-            <button className="btn" onClick={nextPage}>Следующая Страница</button>
+            <Pagination count={4} color="secondary" className="pagination">
+                <Paginations contentSize={contentSize} totalImg={data.length} paginate={paginate}/>
+            </Pagination>
+            <div className="gallery__btns">
+                <Stack>
+                    <Button onClick={PrevPage} variant="contained">Предыдущая Страница</Button>
+                    <Button onClick={nextPage} variant="contained">Следующая Страница</Button>
+                </Stack>
+            </div>
             <ModalGallery link={link} setLink={setLink}></ModalGallery>
         </div>
     )

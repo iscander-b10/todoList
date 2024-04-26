@@ -1,4 +1,6 @@
 .gallery__wrapper {
+    display: flex;
+    flex-direction: column;
     padding: 2rem;
     width: 75%;
 }
@@ -8,5 +10,16 @@
     flex-wrap: wrap;
     gap: 20px;
     list-style: none;
+}
+
+.gallery__btns{
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.pagination {
+    align-self: center;
+    margin: 15px 0;
 }
   

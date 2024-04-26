@@ -2,7 +2,9 @@ import React from "react";
 import "./style.css"
 import { number } from "prop-types";
 
-const Pagination = ({contentSize, totalImg, paginate}) => {
+
+
+const Paginations = ({contentSize, totalImg, paginate}) => {
     const pageNumbers = [];
 
     for (let i = 1; i <= Math.ceil(totalImg / contentSize); i++) {
@@ -22,4 +24,4 @@ const Pagination = ({contentSize, totalImg, paginate}) => {
     )
 }
 
-export default Pagination;
+export default Paginations;
