@@ -2,10 +2,10 @@ import React from "react";
 import "./style.css"
 
 
-const GalleryItem = ({setLink, index}) => {
+const GalleryItem = ({setLink, link, index}) => {
     return(
-        <li key={index} onClick={() => setLink(`/img/car${index}.jpg`)}>
-            <img src={`/img/car${index}.jpg`}></img>
+        <li key={index} onClick={() => setLink(link)}>
+            <img src={link}></img>
         </li>
     )
 }

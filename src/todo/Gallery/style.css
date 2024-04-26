@@ -1,6 +1,7 @@
 .gallery__wrapper {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     padding: 2rem;
     width: 75%;
 }
@@ -12,14 +13,9 @@
     list-style: none;
 }
 
-.gallery__btns{
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-}
-
 .pagination {
-    align-self: center;
+    /* align-self: center;
     margin: 15px 0;
+    width: 100px; */
 }
   

@@ -1,55 +1,42 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import ModalGallery from "../ModalGallery/ModalGallery";
 import GalleryItem from "../GalleryItem/GalleryItem";
-import "./style.css"
-import Paginations from "../Pagination/Paginations";
-import Button from '@mui/material/Button';
 import Pagination from '@mui/material/Pagination';
-import { Stack } from "@mui/material";
-const contentSize = 5;
+import "./style.css"
+
+const contentSize = 10;
 
 const Gallery = () => {
     const [link, setLink] = useState("");
-    const data = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20];
-
     const [currentPage, setCurrentPage] = useState(1);
-    
+    const [dogsImg, setDogs] = useState([]);
+
+    const tetsDogsFetch = async () => {
+        const res = await fetch('https://dog.ceo/api/breeds/image/random/50');
+        const result = await res.json();
+
+        setDogs(result?.message || []);
+    };
+
     const lastImgIndex = currentPage * contentSize;
     const firstImgIndex = lastImgIndex - contentSize;
-    const currentImg = data.slice(firstImgIndex, lastImgIndex);
-    
-    const paginate = pageNumber => setCurrentPage(pageNumber);
-    const nextPage = () => setCurrentPage (next => {
-        if (next + 1 > data.length / contentSize) {
-            return next;
-        }
-        return (next + 1);
-        });
+    const slicedData = dogsImg.slice(firstImgIndex, lastImgIndex);
+
+    const setPage = (event , pageNumber) => setCurrentPage(pageNumber);
+
+    const pageCount = dogsImg.length / contentSize;
         
-    const PrevPage = () => setCurrentPage (prev => {
-        if (prev - 1 < 1) {
-            return prev;
-        }
-        return (prev - 1);
-    });
-        
-        
+    useEffect(() => {
+        tetsDogsFetch();
+    }, []);
 
     return(
         <div className="gallery__wrapper">
             <h1>{'Галерея'}</h1>
             <ul className="gallery__list">
-                {currentImg.map(item => <GalleryItem setLink={setLink} index={item} key={item}/>)}
+                {slicedData.map((item, index) => <GalleryItem setLink={setLink} link={item} key={index}/>)}
             </ul>
-            <Pagination count={4} color="secondary" className="pagination">
-                <Paginations contentSize={contentSize} totalImg={data.length} paginate={paginate}/>
-            </Pagination>
-            <div className="gallery__btns">
-                <Stack>
-                    <Button onClick={PrevPage} variant="contained">Предыдущая Страница</Button>
-                    <Button onClick={nextPage} variant="contained">Следующая Страница</Button>
-                </Stack>
-            </div>
+            <Pagination count={pageCount} onChange={setPage} page={currentPage} color="secondary" className={"pagination"} size="large"/>
             <ModalGallery link={link} setLink={setLink}></ModalGallery>
         </div>
     )

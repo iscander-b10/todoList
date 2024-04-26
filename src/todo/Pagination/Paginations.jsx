@@ -4,7 +4,7 @@ import { number } from "prop-types";
 
 
 
-const Paginations = ({contentSize, totalImg, paginate}) => {
+const Pagination = ({contentSize, totalImg, paginate}) => {
     const pageNumbers = [];
 
     for (let i = 1; i <= Math.ceil(totalImg / contentSize); i++) {
@@ -24,4 +24,4 @@ const Paginations = ({contentSize, totalImg, paginate}) => {
     )
 }
 
-export default Paginations;
+export default Pagination;
