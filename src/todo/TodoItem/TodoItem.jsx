@@ -1,5 +1,8 @@
 import React, {useContext} from "react";
 import Context from "../../context";
+import Checkbox from '@mui/material/Checkbox';
+import BackspaceIcon from '@mui/icons-material/Backspace';
+import { pink } from '@mui/material/colors';
 import "./style.css"
 
 const TodoItem = ({todo, index, onChange}) => {
@@ -13,17 +16,15 @@ const TodoItem = ({todo, index, onChange}) => {
     return(
         <li className="todoItem">
             <span className={classes.join(' ')}>
-                <input 
-                    className="checkbox"
-                    type="checkbox" 
+                <Checkbox
                     checked={todo.completed}
                     onChange={() => onChange(todo.id)}>
-                </input>
+                </Checkbox>
                 <strong>{index+1}</strong>
                 &nbsp;
                 {todo.title}
             </span>
-            <button onClick={() => removeTodo(todo.id)}>&times;</button>
+            <BackspaceIcon sx={{ color: pink[500] }} style={{cursor: "pointer"}} onClick={() => removeTodo(todo.id)}>&times;</BackspaceIcon>
         </li>
     )
 }

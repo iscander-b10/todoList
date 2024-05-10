@@ -11,8 +11,13 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin-bottom: 1rem;
 }
   
+.MuiInputBase-input{
+    color: white !important;
+}
+
 .btn-open {
     cursor: pointer;
 }

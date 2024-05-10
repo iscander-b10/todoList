@@ -12,7 +12,7 @@ const Gallery = () => {
     const [dogsImg, setDogs] = useState([]);
 
     const tetsDogsFetch = async () => {
-        const res = await fetch('https://dog.ceo/api/breeds/image/random/50');
+        const res = await fetch('https://dog.ceo/api/breeds/image/random/80');
         const result = await res.json();
 
         setDogs(result?.message || []);
@@ -32,11 +32,11 @@ const Gallery = () => {
 
     return(
         <div className="gallery__wrapper">
-            <h1>{'Галерея'}</h1>
+            <h1 style={{color: "white"}}>{'Галерея'}</h1>
             <ul className="gallery__list">
                 {slicedData.map((item, index) => <GalleryItem setLink={setLink} link={item} key={index}/>)}
             </ul>
-            <Pagination count={pageCount} onChange={setPage} page={currentPage} color="secondary" className={"pagination"} size="large"/>
+            <Pagination count={pageCount} onChange={setPage} page={currentPage} color="primary" className={"pagination"} size="large"/>
             <ModalGallery link={link} setLink={setLink}></ModalGallery>
         </div>
     )

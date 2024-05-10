@@ -1,7 +1,6 @@
 .content {
     width: 85%;
-    height: 100%;
-    overflow-y: auto;
     padding: 2rem;
-    background-color: lightyellow;
+    background-color: #2E2957;
+    overflow-y: auto;
 }

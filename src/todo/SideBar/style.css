@@ -6,40 +6,37 @@
   width: 15%;
   font-size: 1.5rem;
   font-weight: 600;
-  background-color: rgb(211, 206, 202);
+  background-color: #6E67AB;
 }
 
-.logo-link {
-  width: 60px;
-  align-self: center;
+.sideBar>a{
+  display: flex;
+  justify-content: center;
+  margin: 1rem;
 }
 
-.logo {
-  width: 60px;
-  height: 60px;
+.logo{
+  width: 75%;
   border-radius: 100%;
-  cursor: pointer;
-  margin-top: 1rem;
 }
 
 .menu {
   padding: 0;
-  margin-top: 15rem;
+  margin-top: 10rem;
   list-style: none;
 }
 
-.link {
+.link{
+  color: white;
   text-decoration: none;
+  font-size: 1.2rem;
+  transition: 0.3s;
 }
 
-.sideBarItem {
-  margin: 1rem 0;
-  color: black;
-  list-style: none;
-  cursor: pointer;
+.link:hover{
+  color: #2196f3;
 }
 
-.sideBarItem:hover {
-  color: rgb(188, 16, 16);
-  transition: 0.5s;
+.sideBarItem{
+  margin-bottom: 10px;
 }

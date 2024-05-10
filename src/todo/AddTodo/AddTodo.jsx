@@ -1,7 +1,16 @@
 import React, {useState} from "react";
 import "./style.css";
+import TextField from '@mui/material/TextField';
+import { blue} from '@mui/material/colors';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 
-const AddTodo = ({setTodos, setActive}) => {
+const theme = createTheme({
+    palette: {
+      primary: blue,
+      },
+  });
+
+const AddTodo = ({setTodos}) => {
     const [value, setValue] = useState('');
     
     const addTodo = (value, code) => {
@@ -21,10 +30,20 @@ const AddTodo = ({setTodos, setActive}) => {
     }
         
     return(
-        <div className="flex">
-            <input className="addTodo" value={value} onChange={(event) => setValue(event.target.value)} onKeyUp={(event) => addTodo(value, event.code)}></input>
-            <button className="btn-open" onClick={() => setActive(true)}>Open Modal Window</button>
-        </div>
+        <ThemeProvider theme={theme}>
+            <div className="flex">
+                <TextField 
+                    color={"primary"}
+                    id="outlined-basic" 
+                    label="Добавить заметку" 
+                    variant="outlined" 
+                    value={value} 
+                    onChange={(event) => setValue(event.target.value)} 
+                    onKeyUp={(event) => addTodo(value, event.code)}
+                    fullWidth={true}
+                    />
+            </div>
+        </ThemeProvider>
     )
 }
 

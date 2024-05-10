@@ -1,12 +1,11 @@
 .gallery__list>li {
-    width: 170px;
-    height: 120px;
-    background-color: black;
+    width: 220px;
+    height: 170px;
     cursor: pointer;
 }
   
-img {
-    background-size: 100%;
+.img {
+    background-size: contain;
     height: 100%;
     width: 100%;
 }
