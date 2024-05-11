@@ -24,7 +24,6 @@ const Gallery = () => {
     const firstImgIndex = lastImgIndex - contentSize;
     const slicedData = dogsImg.slice(firstImgIndex, lastImgIndex);
     const setPage = (event , pageNumber) => setCurrentPage(pageNumber);
-    console.log(slicedData)
     const pageCount = Math.ceil(dogsImg.length / contentSize);
         
     useEffect(() => {
