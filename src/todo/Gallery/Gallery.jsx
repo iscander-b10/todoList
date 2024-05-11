@@ -13,11 +13,15 @@ const Gallery = () => {
     const [dogsImg, setDogs] = useState([]);
 
     const getData = async () => {
-        const res = await fetch('https://dog.ceo/api/breeds/image/random/50').json();
+        const res = await fetch("https://dog.ceo/api/breeds/image/random/50");
+        const result = await res.json();
 
-        if (res?.message){
-            setDogs(res.message);
+        if (result.status === "error") {
+            console.error(result);
+            return;
         }
+        
+        setDogs(result.message);
     };
 
     const lastImgIndex = currentPage * contentSize;
