@@ -3,7 +3,7 @@ import GalleryItem from "../GalleryItem/GalleryItem";
 
 const ImageList = ({data, setLink}) => {
     const [preparedData, setPreparedData] = useState(null);
-
+    console.log(data)
     useEffect(() => {
         const res = data.map((elem, index) => {
             return {
