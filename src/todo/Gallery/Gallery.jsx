@@ -5,7 +5,7 @@ import ImageList from "./ImageList";
 import CircularProgress from '@mui/material/CircularProgress';
 import "./style.css"
 
-const contentSize = 15;
+const contentSize = 10;
 
 const Gallery = () => {
     const [link, setLink] = useState("");
@@ -15,18 +15,17 @@ const Gallery = () => {
     const getData = async () => {
         const res = await fetch('https://dog.ceo/api/breeds/image/random/50');
         const result = await res.json();
-        if (result){
-            setDogs(result?.message || []);
+        if (result?.message){
+            setDogs(result.message);
         }
     };
 
     const lastImgIndex = currentPage * contentSize;
     const firstImgIndex = lastImgIndex - contentSize;
     const slicedData = dogsImg.slice(firstImgIndex, lastImgIndex);
-    console.log(slicedData)
     const setPage = (event , pageNumber) => setCurrentPage(pageNumber);
 
-    const pageCount = dogsImg.length / contentSize;
+    const pageCount = Math.ceil(dogsImg.length / contentSize);
         
     useEffect(() => {
         getData();
