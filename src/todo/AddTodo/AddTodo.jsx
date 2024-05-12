@@ -1,12 +1,12 @@
 import React, {useState} from "react";
 import "./style.css";
 import TextField from '@mui/material/TextField';
-import { blue} from '@mui/material/colors';
+import { purple } from '@mui/material/colors';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 const theme = createTheme({
     palette: {
-      primary: blue,
+      primary: purple,
       },
   });
 

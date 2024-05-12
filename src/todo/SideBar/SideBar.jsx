@@ -22,7 +22,9 @@ const SideBar = () => {
                             key={index}
                             className="link"
                         >
-                            <li className="sideBarItem">{item.title}</li>
+                            <li>
+                                <Button style={{color: "white"}}>{item.title}</Button>
+                            </li>
                         </Link>
                     );
                 })}

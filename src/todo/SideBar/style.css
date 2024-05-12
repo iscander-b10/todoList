@@ -6,7 +6,7 @@
   width: 15%;
   font-size: 1.5rem;
   font-weight: 600;
-  background-color: #6E67AB;
+  background-color:#2E2957;
 }
 
 .sideBar>a{
@@ -24,19 +24,4 @@
   padding: 0;
   margin-top: 10rem;
   list-style: none;
-}
-
-.link{
-  color: white;
-  text-decoration: none;
-  font-size: 1.2rem;
-  transition: 0.3s;
-}
-
-.link:hover{
-  color: #2196f3;
-}
-
-.sideBarItem{
-  margin-bottom: 10px;
 }

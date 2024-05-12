@@ -2,11 +2,6 @@
     margin-right: .5rem;
 }
   
-.addTodo {
-    margin-bottom: 1rem;
-    border: 1px solid black;
-}
-  
 .flex {
     display: flex;
     align-items: center;
@@ -16,8 +11,4 @@
   
 .MuiInputBase-input{
     color: white !important;
-}
-
-.btn-open {
-    cursor: pointer;
 }
