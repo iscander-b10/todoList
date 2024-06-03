@@ -18,3 +18,10 @@
     height: 100%;
     border-radius: 12px;
 }
+
+.MuiModal-root {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}

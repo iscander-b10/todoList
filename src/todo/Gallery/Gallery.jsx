@@ -5,7 +5,7 @@ import ImageList from "./ImageList";
 import CircularProgress from '@mui/material/CircularProgress';
 import "./style.css"
 
-const contentSize = 10;
+const contentSize = 7;
 
 const Gallery = () => {
     const [link, setLink] = useState("");
@@ -40,8 +40,10 @@ const Gallery = () => {
 
     return(
         <div className="gallery__wrapper">
-            <h1>{'Галерея'}</h1>
-            <ImageList data={slicedData} setLink={setLink}/>
+            <div>
+                <h1>{'Галерея'}</h1>
+                <ImageList data={slicedData} setLink={setLink}/>
+            </div>
             <Pagination count={pageCount} onChange={setPage} page={currentPage} color="secondary" className={"pagination"} size="large"/>
             <ModalGallery link={link} setLink={setLink}></ModalGallery>
         </div>

@@ -1,12 +1,14 @@
 import React, {useState} from "react";
 import "./style.css";
 import TextField from '@mui/material/TextField';
-import { purple } from '@mui/material/colors';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 const theme = createTheme({
     palette: {
-      primary: purple,
+      primary: {
+        main: "#ffffff",
+
+      },
       },
   });
 
@@ -36,7 +38,7 @@ const AddTodo = ({setTodos}) => {
                     color={"primary"}
                     id="outlined-basic" 
                     label="Добавить заметку" 
-                    variant="outlined" 
+                    variant="standard" 
                     value={value} 
                     onChange={(event) => setValue(event.target.value)} 
                     onKeyUp={(event) => addTodo(value, event.code)}

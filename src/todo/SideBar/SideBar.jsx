@@ -7,6 +7,8 @@ const SideBar = () => {
     const sideBarMenu = [
         { title: "Заметки", link: "/" },
         { title: "Галерея", link: "/Gallery" },
+        { title: "Калькулятор", link: "/Calculator" },
+        { title: "Интернет Магазин", link: "/Store" },
     ];
 
     return (
@@ -23,7 +25,7 @@ const SideBar = () => {
                             className="link"
                         >
                             <li>
-                                <Button style={{color: "white"}}>{item.title}</Button>
+                                <Button style={{color: "white", width: "100%", padding: "2rem 0"}}>{item.title}</Button>
                             </li>
                         </Link>
                     );

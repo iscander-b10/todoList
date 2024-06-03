@@ -1,14 +1,16 @@
 import React from "react";
+import { Modal } from "@mui/material";
 import "./style.css"
 
 const ModalGallery = ({link, setLink}) => {
-    
     return(
-        <div className={link.length > 0 ? "modal active" : "modal"} onClick={() => setLink("")}>
-            <div className="modal__gallery"  onClick={(e) => {e.stopPropagation()}}>
-                <img src={link}/>
-            </div>
-        </div>
+        <Modal  
+            open={link.length > 0}
+            onClose={() => setLink("")}>
+                <div className="modal__gallery">
+                    <img src={link}/>
+                </div>
+        </Modal>
     )
 }
 
