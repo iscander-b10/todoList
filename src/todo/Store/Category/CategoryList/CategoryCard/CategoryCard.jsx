@@ -6,9 +6,9 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 
-const SmartphonesCard = (props) => {
+const CategoryCard = (props) => {
     return(
-        <Card sx={{width: "20%"}}>
+        <Card>
             <CardContent>
                 <Typography>{props.data.name}</Typography>
                 <CardMedia
@@ -26,4 +26,4 @@ const SmartphonesCard = (props) => {
     )
 }
 
-export default SmartphonesCard;
+export default CategoryCard;

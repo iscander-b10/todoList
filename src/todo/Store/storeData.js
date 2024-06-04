@@ -1,6 +1,5 @@
-export const storeData = 
-{
-  "smartphones": [
+export const storeData = {
+  smartphones: [
     { "id": "9ddc1b9d-1bcb-4c49-94da-456dffaaab0b", "name": "Apple iPhone 13", "price": 79999, "imageURL": "/images/smartphones/Apple_iPhone_14.webp", "discount": 10 },
     { "id": "3ad765ae-2db5-4ad6-af25-1332e8d60dec", "name": "Samsung Galaxy S21", "price": 69999, "imageURL": "https://example.com/galaxys21.jpg", "discount": 15 },
     { "id": "c7e5eeda-775b-4b33-bb89-92b303d64a1f", "name": "Xiaomi Mi 11", "price": 49999, "imageURL": "https://example.com/mi11.jpg", "discount": 20 },
@@ -12,7 +11,7 @@ export const storeData =
     { "id": "5bfa9db0-b829-4291-a38e-3f6118f4cfaf", "name": "Asus ROG Phone 5", "price": 89999, "imageURL": "https://example.com/rogphone5.jpg", "discount": 20 },
     { "id": "550c894d-d97b-4711-bc73-d8a9c3fe3dd4", "name": "Realme GT", "price": 44999, "imageURL": "https://example.com/realmegt.jpg", "discount": 10 }
   ],
-  "televisions": [
+  televisions: [
     { "id": "772f9fca-d7da-4b17-8d2e-c1b55da4a4b2", "name": "LG OLED65CX", "price": 159999, "imageURL": "https://example.com/oled65cx.jpg", "discount": 10 },
     { "id": "1a9d7c52-5a1e-4f84-96da-ffacdd7d9684", "name": "Samsung QN90A", "price": 189999, "imageURL": "https://example.com/qn90a.jpg", "discount": 15 },
     { "id": "ad0fc8c1-216d-4faa-9aa0-4fc3995fe428", "name": "Sony Bravia X90J", "price": 149999, "imageURL": "https://example.com/x90j.jpg", "discount": 5 },
@@ -24,7 +23,7 @@ export const storeData =
     { "id": "4b106365-be90-4535-ae27-c26fb84f02a3", "name": "Sharp N7000U", "price": 99999, "imageURL": "https://example.com/n7000u.jpg", "discount": 10 },
     { "id": "7e5b2b14-6dc3-4630-bbcf-1aea46ede49b", "name": "Toshiba C350", "price": 89999, "imageURL": "https://example.com/c350.jpg", "discount": 15 }
   ],
-  "vacuumCleaners": [
+  vacuumCleaners: [
     { "id": "a4bf9464-073e-4b8c-b974-f8c996742793", "name": "Dyson V11", "price": 49999, "imageURL": "https://example.com/dysonv11.jpg", "discount": 5 },
     { "id": "5e5eb542-af1a-4e0a-a469-4fcf7bb0f9ac", "name": "Xiaomi Mi Robot Vacuum", "price": 25999, "imageURL": "https://example.com/mirobotvacuum.jpg", "discount": 10 },
     { "id": "cf70dc5d-44f5-47a3-960c-88249b7c5b91", "name": "iRobot Roomba i7+", "price": 79999, "imageURL": "https://example.com/roombai7.jpg", "discount": 15 },

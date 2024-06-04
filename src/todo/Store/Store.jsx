@@ -1,9 +1,15 @@
 import React from "react";
-import Smartphones from "./Smartphones/Smartphones";
+import Category from "./Category/Category";
+import { storeData } from "./storeData";
 
 const Store = () => {
     return (
-        <Smartphones></Smartphones>
+        <ul>
+            {Object.keys(storeData).map((title) => {
+                return <Category title={title} key={title}/>
+            })}
+        </ul>
+        
     )
 }
 
