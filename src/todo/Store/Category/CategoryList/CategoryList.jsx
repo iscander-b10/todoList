@@ -6,7 +6,7 @@ import "./style.css";
 const CategoryList = ({categoryKey}) => {
     return(
         <ul className="categoryList">
-            {storeData[categoryKey].map((elem, index) => {
+            {storeData[categoryKey].products.map((elem, index) => {
             return <CategoryCard data = {elem} key={index}/>
             })}
         </ul> 

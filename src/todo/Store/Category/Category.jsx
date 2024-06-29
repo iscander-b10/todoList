@@ -5,18 +5,25 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import CategoryList from "./CategoryList/CategoryList";
 
-const Category = ({title}) => {
+const Category = ({title, categoryKey}) => {
     return(
-        <Accordion>
+        <Accordion defaultExpanded
+            sx={{
+                backgroundColor: "#ded3e6",
+                width: "95%",
+            }}
+        >
             <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
-                // aria-controls="panel1-content"
-                // id="panel1-header"
+                sx={{
+                    fontSize: "1.7rem",
+                    fontWeight: "600",
+                }}
             >
             {title}
             </AccordionSummary>
             <AccordionDetails>
-                <CategoryList categoryKey={title}/>
+                <CategoryList categoryKey={categoryKey}/>
             </AccordionDetails>
       </Accordion>
     )
