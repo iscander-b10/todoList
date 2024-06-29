@@ -15,7 +15,7 @@ const Basket = ({open, setOpen}) => {
 
     useEffect(() => {
         setSum(productsBasket.reduce((acc, value) => {
-            return acc + value.price;
+            return acc + (value.price * value.count);
         }, 0))
     },[productsBasket])
 
@@ -46,7 +46,7 @@ const Basket = ({open, setOpen}) => {
                     </Typography>
                     <ul>
                         {productsBasket.map((data) => {
-                            return <AddedCard data={data} key={data.id}/>
+                            return <AddedCard data={data} key={data.id} basketSum={sum} setBasketSum={setSum}/>
                         })}
                     </ul>
                 </Box>

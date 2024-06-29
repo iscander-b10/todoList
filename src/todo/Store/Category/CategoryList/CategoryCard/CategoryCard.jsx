@@ -11,7 +11,7 @@ const CategoryCard = (props) => {
     const {productsBasket, setProductsBasket} = useContext(StoreContext); 
     const handleBasket = (data) => {
         setProductsBasket((oldData) => {
-            return [...oldData, data]
+            return [...oldData, {...data, count: 1}];
         })
     }
     const deleteFromBasket = (id) => {

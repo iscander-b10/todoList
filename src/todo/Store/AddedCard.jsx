@@ -1,19 +1,38 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
+import { Button, ButtonGroup } from '@mui/material';
 import Box from '@mui/material/Box';
 import DeleteIcon from '@mui/icons-material/Delete';
 import StoreContext from "./context/context";
 
-const AddedCard = ({data}) => {
+const AddedCard = ({data, basketSum, setBasketSum}) => {
+    const [count, setCount] = useState(1);
     const {productsBasket, setProductsBasket} = useContext(StoreContext); 
     const deleteCard = (id) => {
         setProductsBasket(productsBasket.filter(products => products.id !== id));
     }
+
+    //#1
+    const changeProductCount = (id, countValue) => {
+        setProductsBasket(
+            productsBasket.map((elem) =>
+                elem.id === id
+                    ? { ...elem, count: elem.count + countValue }
+                    : elem
+            )
+        );
+    };
+
+    //#2
+    const changeProductCount2 = (value, price) => {
+        setCount (count + value);
+        setBasketSum(basketSum + price * value);
+    }
+
     return (
         <Card>
             <CardContent
@@ -39,10 +58,13 @@ const AddedCard = ({data}) => {
                     </Typography>
                     <CardActions>
                         <Button onClick={() => deleteCard(data.id)}>
-                            <DeleteIcon>
-
-                            </DeleteIcon>
+                            <DeleteIcon/>
                         </Button>
+                        <ButtonGroup variant="outlined">
+                        <Button  onClick={() => changeProductCount2(-1, data.price)} disabled={count === 1}>{"-"}</Button>
+                        <Typography>{count}</Typography>
+                        <Button onClick={() => changeProductCount2(1, data.price)}>{"+"}</Button>
+                        </ButtonGroup>
                     </CardActions>
                 </Box>
             </CardContent>
