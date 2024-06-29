@@ -9,14 +9,19 @@ import StoreContext from "../../../context/context";
 
 const CategoryCard = (props) => {
     const {productsBasket, setProductsBasket} = useContext(StoreContext); 
+    const isAddedToBasket = productsBasket.some((elem) => elem.id === props.data.id);
+
     const handleBasket = (data) => {
-        setProductsBasket((oldData) => {
-            return [...oldData, {...data, count: 1}];
-        })
-    }
-    const deleteFromBasket = (id) => {
-        setProductsBasket(productsBasket.filter(products => products.id !== id));
-    }
+        if (isAddedToBasket) {
+            setProductsBasket(productsBasket.filter(products => products.id !== data.id));
+        } else {
+            setProductsBasket((oldData) => {
+                return [...oldData, {...data, count: 1}];
+            });
+        };
+    };
+
+
     return(
         <Card
             sx={{
@@ -58,33 +63,18 @@ const CategoryCard = (props) => {
                 </Typography>
             </CardContent>
             <CardActions>
-                {productsBasket.some((elem) => {
-                    return elem.id === props.data.id;
-                }) 
-                ? <Button
+                <Button
                     sx={{
-                        backgroundColor: "black",
-                        color: "white",
-                        textTransform: "none",
-                        marginBottom: "10px",
-                    }}
-                    onClick={() => {deleteFromBasket(props.data.id)}}
-                
-                >
-                    Убрать из корзины
-                </Button>
-                : <Button
-                    sx={{
-                        backgroundColor: "#deb0f3",
-                        color: "black",
+                        backgroundColor: isAddedToBasket ? "black" : "#deb0f3",
+                        color: isAddedToBasket ? "white" : "black",
                         textTransform: "none",
                         marginBottom: "10px",
                     }}
                     onClick={() => {handleBasket(props.data)}}
-                    
+                
                 >
-                    В корзину
-                </Button>}
+                    {isAddedToBasket ? "Убрать из корзины" : "В корзину"}
+                </Button>
             </CardActions>
         </Card>
     )

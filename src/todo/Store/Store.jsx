@@ -13,6 +13,7 @@ const Store = () => {
     const [openBasket, setOpenBasket] = useState(false);
     const handleOpen = () => setOpenBasket(true);
     const [productsBasket, setProductsBasket] = useState([]);
+    
     return (
         <StoreContext.Provider value={{productsBasket, setProductsBasket}}>
             <Box>
