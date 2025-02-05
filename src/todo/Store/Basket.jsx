@@ -7,6 +7,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import StoreContext from "./context/context";
 import AddedCard from "./AddedCard";
 import Order from "./Order";
+import Stack from '@mui/material/Stack';
 
 const Basket = ({open, setOpen}) => {
     const handleClose = () => setOpen(false);
@@ -15,7 +16,7 @@ const Basket = ({open, setOpen}) => {
 
     useEffect(() => {
         setSum(productsBasket.reduce((acc, value) => {
-            return acc + (value.price * value.count);
+            return value.isChecked ? acc + (value.price * value.count) : acc;
         }, 0))
     },[productsBasket])
 
@@ -27,40 +28,46 @@ const Basket = ({open, setOpen}) => {
             aria-describedby="modal-modal-description"
         >
             <Box sx={{
-                display: "flex",
-                justifyContent: "space-between",
-                backgroundColor: "#cbcbcb",
                 width: "100%",
                 height: "100%",
+                backgroundColor: "#6E67AB",
+                overflow: "auto"
             }}>
-                <Box
-                    sx={{
-                        backgroundColor: "white",
-                        display: "flex",
-                        flexDirection: "column",
-                        width: "70%"
-                    }}
+                <Stack sx={{
+                    backgroundColor: "#ded3e6",
+                    padding: "2rem 3rem 4rem 3rem",
+                    width: "50%",
+                    borderRadius: "15px",
+                    margin: "2rem",
+                }}
+                    direction="column"
+                    alignItems="flex-start"
+                    spacing={3}
                 >
-                    <Typography>
+                    <Typography
+                        sx={{
+                            fontWeight: "600",
+                            fontSize: "2.5rem"
+                        }}
+                    >
                         Корзина
                     </Typography>
-                    <ul>
+                    <ul className="cardList">
                         {productsBasket.map((data) => {
                             return <AddedCard data={data} key={data.id} basketSum={sum} setBasketSum={setSum}/>
                         })}
                     </ul>
-                </Box>
-                <Order width={"30%"} sum={sum}>
+                </Stack>
+                <Order sum={sum}>
 
                 </Order>
-                    
-                
                 <Button 
                     onClick={handleClose}
                     sx={{
                         position: "fixed",
                         top: "30px",
                         right: "30px",
+                        color: "red"
                     }}
                 >
                     <CloseIcon fontSize="large"/>

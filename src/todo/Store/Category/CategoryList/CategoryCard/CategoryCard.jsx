@@ -9,14 +9,14 @@ import StoreContext from "../../../context/context";
 
 const CategoryCard = (props) => {
     const {productsBasket, setProductsBasket} = useContext(StoreContext); 
-    const isAddedToBasket = productsBasket.some((elem) => elem.id === props.data.id);
+    const isAddedToBasket = productsBasket.some((elem) => elem.id  === props.data.id);
 
     const handleBasket = (data) => {
         if (isAddedToBasket) {
             setProductsBasket(productsBasket.filter(products => products.id !== data.id));
         } else {
             setProductsBasket((oldData) => {
-                return [...oldData, {...data, count: 1}];
+                return [...oldData, {...data, count: 1, isChecked: true}];
             });
         };
     };
