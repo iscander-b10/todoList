@@ -11,7 +11,6 @@ import Stack from '@mui/material/Stack';
 import Checkbox from '@mui/material/Checkbox';
 
 const AddedCard = ({data, basketSum, setBasketSum}) => {
-    // const [count, setCount] = useState(1);
     const {productsBasket, setProductsBasket} = useContext(StoreContext); 
     const findProduct = productsBasket.find((elem) => elem.id === data.id);
     
@@ -31,23 +30,6 @@ const AddedCard = ({data, basketSum, setBasketSum}) => {
     }
 
     const changeProductCount = (id, countValue) => setProductsBasket(productsBasket.map((elem) => elem.id === id ? {...elem, count: elem.count + countValue} : elem));
-
-    // //#1
-    // const changeProductCount = (id, countValue) => {
-    //     setProductsBasket(
-    //         productsBasket.map((elem) =>
-    //             elem.id === id
-    //                 ? { ...elem, count: elem.count + countValue }
-    //                 : elem
-    //         )
-    //     );
-    // };
-
-    // //#2
-    // const changeProductCount2 = (value, price) => {
-    //     setCount (count + value);
-    //     setBasketSum(basketSum + price * value);
-    // }
 
     return (
         <Card>

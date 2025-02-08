@@ -8,17 +8,64 @@ import StoreContext from "./context/context";
 import AddedCard from "./AddedCard";
 import Order from "./Order";
 import Stack from '@mui/material/Stack';
+import Checkbox from '@mui/material/Checkbox';
 
 const Basket = ({open, setOpen}) => {
     const handleClose = () => setOpen(false);
     const [sum, setSum] = useState(0);
     const {productsBasket, setProductsBasket} = useContext(StoreContext); 
 
+    // Загрузка корзины из localStorage при монтировании
+    useEffect(() => {
+        const savedBasket = localStorage.getItem('basket');
+        if (savedBasket) {
+            try {
+                const parsedBasket = JSON.parse(savedBasket);
+                setProductsBasket(parsedBasket);
+            } catch (error) {
+                console.error('Ошибка загрузки корзины:', error);
+            }
+        }
+    }, []);
+
+    // Сохранение корзины в localStorage при изменениях
+    useEffect(() => {
+        localStorage.setItem('basket', JSON.stringify(productsBasket));
+    }, [productsBasket]);
+
+    // Расчет суммы
+    useEffect(() => {
+        setSum(
+            productsBasket.reduce((acc, product) => {
+                return product.isChecked ? acc + product.price * product.count : acc;
+            }, 0)
+        );
+    }, [productsBasket]);
+
     useEffect(() => {
         setSum(productsBasket.reduce((acc, value) => {
             return value.isChecked ? acc + (value.price * value.count) : acc;
         }, 0))
     },[productsBasket])
+    
+    const AllChecked = productsBasket.length > 0 && productsBasket.every(product => product.isChecked);
+
+    const toggleAll = () => {
+        const newCheckedState = !AllChecked;
+
+        setProductsBasket(prev => 
+            prev.map(product => ({
+              ...product,
+              isChecked: newCheckedState
+            }))
+        );
+    }
+    
+    const hasSelectedItems = productsBasket.some(product => product.isChecked);
+
+    const handleDeleteSelected = () => {
+        setProductsBasket(productsBasket.filter(products => !products.isChecked))
+    }
 
     return (
         <Modal
@@ -51,6 +98,42 @@ const Basket = ({open, setOpen}) => {
                         }}
                     >
                         Корзина
+                    </Typography>
+                    <Typography
+                        sx={{
+                            background: "white",
+                            width: "100%",
+                            borderRadius: "10px",
+                        }}
+                    >
+                        <Button 
+                            
+                            onClick={() => toggleAll()}
+                            disabled={productsBasket.length === 0} 
+                            sx={{
+                                textTransform: "none",
+                                margin: "8px 0 8px 16px"
+                            }}
+                        >
+                            <Checkbox
+                                checked={AllChecked}
+                                sx={{
+                                    padding: "0",
+                                    marginRight: "7px"
+                                }}
+                            />
+                            Выбрать все
+                        </Button>
+                        <Button 
+                            onClick={() => handleDeleteSelected()}
+                            disabled={!hasSelectedItems}
+                            sx={{
+                                color: "red",
+                                textTransform: "none",
+                            }}
+                        >
+                            Удалить выбранные
+                        </Button>
                     </Typography>
                     <ul className="cardList">
                         {productsBasket.map((data) => {
